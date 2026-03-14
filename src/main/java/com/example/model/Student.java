@@ -1,23 +1,24 @@
 package com.example.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Student {
 
-    private int studentId;
-    private String name;
-    private String course;
-    private int year;
+    private int id = 101;
+    private String name = "John";
+    private String gender = "Male";
 
-    public Student() {
-        this.studentId = 201;
-        this.name = "Alice";
-        this.course = "Data Science";
-        this.year = 2;
-    }
+    @Autowired
+    private Certification certification;
 
     public void display() {
-        System.out.println(studentId + " " + name + " " + course + " " + year);
+        System.out.println("Student ID: " + id);
+        System.out.println("Student Name: " + name);
+        System.out.println("Gender: " + gender);
+
+        System.out.println("----- Certification Details -----");
+        certification.display();
     }
 }
